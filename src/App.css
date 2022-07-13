@@ -1,0 +1,120 @@
+* {
+  font-family: Roboto, sans-serif;
+  color: #000101;
+  padding: 0.5rem;
+}
+
+body {
+  background: rgb(125, 212, 231);
+  background: linear-gradient(
+    156deg,
+    rgba(125, 212, 231, 1) 50%,
+    rgba(204, 209, 203, 1) 90%,
+    rgba(204, 209, 203, 1) 100%
+  );
+  height: 100vh;
+}
+
+.App {
+  width: 20vw;
+  height: max-content;
+  border: 5px solid rgba(213, 206, 206, 0.579);
+  border-radius: 4%;
+  margin: auto;
+  background: white;
+  min-width: 300px;
+  padding-bottom: 15px;
+}
+
+#searchbarDiv {
+  position: relative;
+}
+
+#locationIcon {
+  position: absolute;
+  left: 0.5rem;
+  width: 20px;
+}
+
+.searchBox {
+  box-shadow: 0 8px 10px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 10%),
+    0 -8px 12px 0 rgb(0 0 0 / 5%), 0 -2px 3px -2px rgb(0 0 0 / 1%);
+  font-weight: 600;
+  width: 80%;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 10px;
+  padding-left: 3rem;
+}
+
+#locationSearch {
+  position: absolute;
+  width: 20px;
+  right: 0.5rem;
+}
+
+#weeklyWeatherDiv {
+  width: 90%;
+  /* height: 20%; */
+  display: flex;
+  margin: auto;
+  overflow-x: scroll;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#dailyWeather {
+  padding: 2px 0;
+}
+
+#dailyWeather div {
+  padding: 2px;
+}
+
+#climateImg {
+  width: 40px;
+}
+
+.dailyWeatherBlock {
+  color: rgb(115, 114, 114);
+}
+
+#climateImgDetailsDiv {
+  width: 50px;
+}
+
+.detailsBox {
+  box-shadow: 0 8px 10px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 10%),
+    0 -8px 12px 0 rgb(0 0 0 / 5%), 0 -2px 3px -2px rgb(0 0 0 / 1%);
+  font-weight: 600;
+  width: 90%;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 10px;
+  margin: auto;
+}
+
+#detailsBoxDegree {
+  position: relative;
+  top: 15px;
+  padding: 0;
+  font-size: 30px;
+  vertical-align: top;
+}
+
+#pressureHumidity {
+  display: flex;
+  gap: 5%;
+}
+#pressureHumidity > div {
+  width: 45%;
+  background: #f3fbff;
+}
+.sunTime {
+  padding: 2px;
+}
+
+.detailsBoxSF {
+  font-size: 10px;
+  color: gray;
+}
