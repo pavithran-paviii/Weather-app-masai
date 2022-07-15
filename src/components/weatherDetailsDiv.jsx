@@ -9,14 +9,14 @@ export const WeatherDetailsDiv = ({ weatherDetails }) => {
     var sunrise = new Date(weatherDetails.current.sunrise * 1000);
     var sr = sunrise.getHours() + ":" + sunrise.getMinutes() + "am";
     var sunset = new Date(weatherDetails.current.sunset * 1000);
-    var st = sunset.getHours()-12 + ":" + sunset.getMinutes() + "pm";
+    var st = sunset.getHours() - 12 + ":" + sunset.getMinutes() + "pm";
   }
 
   return (
     <div className="detailsBox">
       <div>
         <span id="detailsBoxDegree">
-          {weatherDetails && weatherDetails.current.temp + "°"}
+          {weatherDetails && Math.floor(weatherDetails.current.temp) + "°C"}
         </span>
         <img alt="climateImg" src={sun} id="climateImgDetailsDiv" />
       </div>
