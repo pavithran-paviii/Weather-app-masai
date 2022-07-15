@@ -1,9 +1,12 @@
 import React from "react";
+import { useContext } from "react";
+import GlobalContext from "../Contexts/GlobalContext";
 import sun from "../images/sun.png";
 import { HourlyLineGraph } from "./HourlyLineGraph";
 
-export const WeatherDetailsDiv = ({ weatherDetails }) => {
-  console.log("required data", weatherDetails);
+export const WeatherDetailsDiv = () => {
+  const { weatherDetails } = useContext(GlobalContext);
+  // console.log("required data", weatherDetails);
 
   if (weatherDetails) {
     var sunrise = new Date(weatherDetails.current.sunrise * 1000);

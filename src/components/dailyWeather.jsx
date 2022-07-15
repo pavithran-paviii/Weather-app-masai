@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-
+import React from "react";
 
 export const DailyWeather = ({ data }) => {
-  const [selectDay, setSelectDay] = useState(false);
-
   var today = new Date();
 
   if (data) {
