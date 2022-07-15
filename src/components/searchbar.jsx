@@ -1,14 +1,16 @@
 import axios from "axios";
-import React, { useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import pin from "../images/pin.png";
 import search from "../images/magnifiying-glass.png";
 import { useContext } from "react";
 import GlobalContext from "../Contexts/GlobalContext";
+import { data } from "../data/cities";
 
 let api_key = "22ba6672b96680a919ff4909f70e4bad";
 let api = `https://api.openweathermap.org/data/2.5/onecall?`;
 
 export const Searchbar = () => {
+  console.log("cities", data);
   const {
     setWeatherDetails,
     // weatherDetails,
@@ -52,25 +54,66 @@ export const Searchbar = () => {
     // console.log(city);
   }
 
+  const [value, setValue] = useState("");
+
+  const onChange = (event) => {
+    setValue(event.target.value);
+    setCity(event.target.value);
+  };
+
+  const onSearch = (searchTerm) => {
+    setValue(searchTerm);
+    searchDetails();
+  };
+
   return (
-    <div id="searchbarDiv">
-      <img alt="locationpin" src={pin} id="locationIcon" />
-      <input
-        placeholder="Enter your city here"
-        className="searchBox"
-        onChange={(e) => setCity(e.target.value)}
-        onKeyPress={(e) => {
-          if (e.key === "Enter") {
-            searchDetails();
-          }
-        }}
-      />
-      <img
-        alt="search"
-        src={search}
-        id="locationSearch"
-        onClick={searchDetails}
-      />
+    <div style={{ position: "relative" }}>
+      <div id="searchbarDiv">
+        <img alt="locationpin" src={pin} id="locationIcon" />
+        <input
+          placeholder="Enter your city here"
+          className="searchBox"
+          // onChange={(e) => setCity(e.target.value)}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              searchDetails();
+            }
+          }}
+          type="text"
+          value={value}
+          onChange={onChange}
+        />
+        <img
+          alt="search"
+          src={search}
+          id="locationSearch"
+          // onClick={searchDetails}
+          onClick={() => onSearch(value)}
+        />
+      </div>
+      <div className="dropdown">
+        {data
+          .filter((item) => {
+            const searchTerm = value.toLowerCase();
+            const fullName = item.name.toLowerCase();
+
+            return (
+              searchTerm &&
+              fullName.startsWith(searchTerm) &&
+              fullName !== searchTerm
+            );
+          })
+          .slice(0, 10)
+          .map((item) => (
+            <div
+              onClick={() => onSearch(item.name)}
+              className="dropdown-row"
+              key={item.name}
+            >
+              {item.name}
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

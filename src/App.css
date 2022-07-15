@@ -51,6 +51,7 @@ body {
   position: absolute;
   width: 20px;
   right: 0.5rem;
+  top: 10px;
 }
 
 #weeklyWeatherDiv {
@@ -117,4 +118,11 @@ body {
 .detailsBoxSF {
   font-size: 10px;
   color: gray;
+}
+
+.dropdown {
+  position: absolute;
+  background-color: white;
+  width: -webkit-fill-available;
+  z-index: 10;
 }
