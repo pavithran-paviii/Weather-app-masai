@@ -35,7 +35,7 @@ export const DailyWeather = ({ data }) => {
       id="dailyWeather"
       style={{
         border: today.getDate() === dt.getDate() ? "2px solid #4dc0f5" : null,
-        background: today.getDate() === dt.getDate() ? "#dc9898" : null,
+        background: today.getDate() === dt.getDate() ? "#f9f5ee" : null,
       }}
     >
       <div>{day}</div>
