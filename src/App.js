@@ -15,6 +15,13 @@ function App() {
 
   // console.log("weather details", weatherDetails);
 
+  function changeDailyWeatherDiv(e) {
+    console.log(
+      "working changing weather div",
+      (e.target.parentElement.id = "selectedWeatherDiv")
+    );
+  }
+
   const GlobalValues = {
     setWeatherDetails,
     weatherDetails,
@@ -24,6 +31,7 @@ function App() {
     setLongitude,
     city,
     setCity,
+    changeDailyWeatherDiv,
   };
 
   return (
